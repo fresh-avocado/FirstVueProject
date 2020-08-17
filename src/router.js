@@ -28,6 +28,11 @@ export default new Router({
       path: '/posts',
       name: 'posts',
       component: () => import(/* webpackChunkName: "posts" */ './views/Posts.vue')
+    },
+    {
+      path: '/createpost',
+      name: 'createpost',
+      component: () => import(/* webpackChunkName: "createpost" */ './views/CreatePost.vue')
     }
   ]
 })

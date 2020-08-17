@@ -7,7 +7,7 @@
           <p>Author: {{post.author.firstName}} {{post.author.lastName}}</p>
           <p>Topic: {{post.topic.topic}}</p>
           <p>Subtopic: {{post.subtopic.subtopic}}</p>
-          <p>Validated: {{post.validated ? "Yes": "No"}}</p>
+          <!-- <p>Validated: {{post.validated ? "Yes": "No"}}</p> -->
           <div v-if="post.videos && post.videos.length > 0">
                <h4>Videos de YouTube</h4>
                <div class="videos" v-bind:key="i" v-for="(videolink, i) in post.videos">

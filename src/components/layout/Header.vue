@@ -5,7 +5,8 @@
       <router-link class="link" to="/">Home</router-link>| 
       <router-link class="link" to="/about">About</router-link>| 
       <router-link class="link" to="/contact">Contact</router-link>|
-      <router-link class="link" to="/posts">Posts</router-link>
+      <router-link class="link" to="/posts">Posts</router-link>|
+      <router-link class="link" to="/createpost">New Post</router-link>
     </div>
   </header>
 </template>
