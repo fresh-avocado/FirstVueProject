@@ -21,8 +21,8 @@ export default {
      },
      created() {
           axios.get('http://localhost:8080/post')
-          // fetch all validated posts
-          .then(response => this.posts = response.data.filter(post => post.validated)) // .data !!!!!!!
+          // fetch all validated posts, this can be done by changing the request
+          .then(response => this.posts = response.data) // .data !!!!!!!
           .catch(error => console.log("Error when fetching Pachay posts."));
      }
 }

@@ -33,6 +33,11 @@ export default new Router({
       path: '/createpost',
       name: 'createpost',
       component: () => import(/* webpackChunkName: "createpost" */ './views/CreatePost.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "login" */ './views/Login.vue')
     }
   ]
 })

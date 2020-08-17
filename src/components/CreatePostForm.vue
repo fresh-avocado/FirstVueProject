@@ -33,22 +33,27 @@
           <h3 class="form-element">Material de Soporte</h3>
                <input class="form-element" type="file" accept=".pdf" id="material"> 
                <button class="cancel-file-selection form-element" v-on:click="deleteSelectedFile('material')">Cancel</button>
-          <button type="submit" class="form-element submit-post">Create Post</button>
+          <input type="submit" class="form-element submit-post" v-on:click="uploadPost" value="Create Post">
      </div>
 </template>
 
 <script>
 import { required, minLength, between } from 'vuelidate/lib/validators';
+import axios from 'axios';
 
 export default {
      name: 'NewPostForm',
      data() {
           return {
+               token: localStorage.getItem('jwt'),
                formErrors: [],
-               postTitle: null,
-               postDescription: null,
+               title: null,
+               description: null,
                youtubeLinksCount: 0,
                youtubeLinks: [],
+               ejercicios: [],
+               solucionarios: [],
+               material: [],
                selectedTopic: null,
                selectedSubtopic: null,
                topics: {
@@ -59,23 +64,6 @@ export default {
                }
           }
      },
-     // las validaciones no funcionan aun, TODO: arreglarlas
-     validations: {
-          postTitle: {
-               required,
-               minLength: minLength(10)
-          },
-          postDescription: {
-               required,
-               between: between(50, 500)
-          },
-          selectedTopic: {
-               required
-          },
-          selectedSubtopic: {
-               required
-          }
-     },
      methods: {
           deleteSelectedFile(name) {
                if (name == "ejercicio" || name == "solucionario" || name == "material") {
@@ -83,6 +71,37 @@ export default {
                } else {
                     console.log("Invalid name passed to deleteSelectedFile funtion.");
                }
+          },
+          uploadPost() {
+               axios({
+                    method: 'post',
+                    url: 'http://localhost:8080/post',
+                    headers: {
+                         'Content-Type': 'application/json',
+                         'Authorization': `Bearer ${this.token}`
+                    },
+                    data: {
+                         'title': this.title,
+                         'description': this.description,
+                         'topic': this.selectedTopic,
+                         'subtopic': this.selectedSubtopic,
+                         // TODO: agarrar los links que el usuario pone, porq por ahora se estan ignorando 
+                         'videos': this.youtubeLinks,
+                         // si quiero subir archivos, tengo que hacer un request antes para crearlos en el server
+                         // por ahora no mandaré archivos
+                         'ejercicios': [],
+                         'solucionario': [],
+                         'soporte': []
+                    }
+               }).then(response => {
+                    if (response.status == 200) {
+                         console.log(response.data);
+                         alert('¡Éxito al subir el Post! Espere a que un moderador valide su Post.');
+                         this.$router.push("posts");
+                    } else {
+                         aler('Ocurrió un error. El Post no se pudo subir.');
+                    }
+               });
           }
      }
 }
