@@ -24,6 +24,13 @@ export default {
       role: localStorage.getItem('role')
     }
   },
+  mounted() {
+          // as soon as this component is mounted into the DOM, define the event handler
+          this.$root.$on('user-logged-in', data => {
+               this.loggedIn = true;
+               this.role = localStorage.getItem('role');
+          });
+     },
   methods: {
     logout() {
       localStorage.removeItem('firstName');

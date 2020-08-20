@@ -1,7 +1,7 @@
 <template>
      <div>
           <h1>Login</h1>
-          <LoginForm v-on:userLoggedIn="$emit('user-logged-in')"></LoginForm>
+          <LoginForm></LoginForm>
      </div>
 </template>
 

@@ -39,7 +39,7 @@ export default {
                          localStorage.setItem('lastName', response.data.lastName);
                          localStorage.setItem('role', response.data.role);
                          localStorage.setItem('jwt', response.data.jwt);
-                         this.$emit('user-logged-in');
+                         this.$root.$emit('user-logged-in');
                          this.$router.push("posts");
                          // TODO: redirect user to the profile page (posts page for now)
                     } else {
