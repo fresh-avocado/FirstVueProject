@@ -1,6 +1,6 @@
 <template>
      <div>
-          <div v-bind:key="post.id" v-for="post in posts">
+          <div class="posts-container" v-bind:key="post.id" v-for="post in posts">
                <Post v-bind:post="post" />
           </div>
      </div>
@@ -18,6 +18,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+     .posts-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 1%;
+     }
 </style>

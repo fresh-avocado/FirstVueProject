@@ -14,19 +14,19 @@
                     <a v-bind:href="videolink" target="_blank">Link {{i+1}}</a>
                </div>
           </div>
-          <div v-if="post.ejercicios">
+          <div v-if="post.ejercicios && post.ejercicios.length > 0">
                <h4>Ejercicios</h4>
                <div class="ejercicios" v-bind:key="i+10" v-for="(ejercicio, i) in post.ejercicios">
                     <button v-on:click="downloadPdf(ejercicio)">Ejercicio {{i+1}}</button>
                </div>
           </div>
-          <div v-if="post.solucionario">
+          <div v-if="post.solucionario && post.solucionario.length > 0">
                <h4>Solucionarios</h4>
                <div class="solucionario" v-bind:key="i+20" v-for="(archivo, i) in post.solucionario">
                     <button v-on:click="downloadPdf(archivo)">Solucionario {{i+1}}</button>
                </div>
           </div>
-          <div v-if="post.soporte">
+          <div v-if="post.soporte && post.soporte.length > 0">
                <h4>Material de Soporte</h4>
                <div class="material" v-bind:key="i+30" v-for="(archivo, i) in post.soporte">
                     <button v-on:click="downloadPdf(archivo)">Material de Soporte {{i+1}}</button>
@@ -48,10 +48,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
      .post {
           background: #f4f4f4;
-          padding: 10px;
-          border-bottom: 1px #ccc dotted;
+          padding: 1%;
+          flex-basis: 50%;
+          margin: 1%;
+     }
+     @media(max-width: 1100px) {
+          .post {
+               background: #f4f4f4;
+               padding: 1%;
+               flex-basis: 80%;
+               margin: 1%;
+          }
      }
 </style>

@@ -1,9 +1,11 @@
 <template>
-     <div class="login-form-container">
+     <div>
           <!-- TODO: hacer validacion -->
-          <input v-model="email" type="email" placeholder="Email ..." class="form-element">
-          <input v-model="password" type="password" placeholder="Password ..." class="form-element">
-          <input type="submit" class="form-element" value="Login" v-on:click="login(email, password)">
+          <form class="login-form-container">
+               <input v-model="email" type="email" placeholder="Email ..." class="form-element">
+               <input v-model="password" type="password" placeholder="Password ..." class="form-element">
+               <input type="submit" class="form-element" value="Login" v-on:click="login(email, password)">
+          </form>
      </div>
 </template>
 
@@ -56,9 +58,15 @@ export default {
      display: flex;
      flex-direction: column;
      padding: 5%;
+     flex-basis: 90%;
+     justify-content: space-between;
 }
 
 .form-element {
-     margin: 1%;
+     margin: 1% 15% 1% 15%;
+     flex-basis: 5%;
+     padding: 2%;
+     border-radius: 10px;
+     font-size: 90%;
 }
 </style>

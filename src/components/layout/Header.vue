@@ -6,10 +6,10 @@
       <router-link class="link" to="/about">About</router-link>| 
       <router-link class="link" to="/contact">Contact</router-link>|
       <router-link class="link" to="/posts">Posts</router-link>|
-      <!-- Cómo prohibir q el usuario tipee /createpost? -->
-      <router-link class="link" to="/createpost" v-if="role == 0">New Post |</router-link>
+      <router-link class="link" to="/images">Images</router-link>|
+      <!-- FIXME: Cómo prohibir q el usuario tipee /createpost? -->
+      <router-link class="link" to="/createpost" v-if="loggedIn && role == 0">New Post |</router-link>
       <router-link class="link" to="/login" v-if="!loggedIn">Login</router-link>
-      <!-- TODO: emit a 'userLoggedIn' event so that we can update the login button with the logout button -->
       <button class="link" to="/logout" v-if="loggedIn" v-on:click="logout">Logout</button>
     </div>
   </header>

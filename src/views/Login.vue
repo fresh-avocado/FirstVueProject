@@ -1,5 +1,5 @@
 <template>
-     <div>
+     <div class="login-container">
           <h1>Login</h1>
           <LoginForm></LoginForm>
      </div>
@@ -17,5 +17,8 @@ export default {
 </script>
 
 <style scoped>
-
+     .login-container {
+          display: flex;
+          flex-direction: column;
+     }
 </style>
