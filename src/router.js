@@ -43,6 +43,11 @@ export default new Router({
       path: '/images',
       name: 'images',
       component: () => import(/* webpackChunkName: "images" */ './views/Images.vue')
+    },
+    {
+      path: '/randomposts',
+      name: 'randomposts',
+      component: () => import(/* webpackChunkName: "randomposts" */ './views/RandomPosts.vue')
     }
   ]
 })

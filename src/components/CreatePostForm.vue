@@ -97,7 +97,7 @@ export default {
                     if (response.status == 200) {
                          console.log(response.data);
                          alert('¡Éxito al subir el Post! Espere a que un moderador valide su Post.');
-                         this.$router.push("posts");
+                         this.$router.push("home");
                     } else {
                          aler('Ocurrió un error. El Post no se pudo subir.');
                     }
@@ -116,7 +116,16 @@ export default {
 }
 
 .form-element {
-     margin: 1%;
+     margin: 1% 15% 1% 15%;
+     flex: 2;
+     flex-basis: 80%;
+     padding: 0.5%;
+}
+
+@media(max-width: 700px) {
+     .form-element {
+          margin: 1% 5% 1% 5%;
+     }
 }
 
 .submit-post {

@@ -2,6 +2,7 @@
      <div class="images-container">
           <h1 id="title">Random Images</h1>
           <ImageViewer></ImageViewer>
+          <!-- TODO: hacerlo con algo parecido al RecyclerViewer -->
      </div>
 </template>
 
