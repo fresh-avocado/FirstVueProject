@@ -7,7 +7,7 @@
             <h3>Loading...</h3>
        </div>
        <div v-else class="random-posts-parser-container" v-for="post in filteredPosts" v-bind:key="post.id">
-          <p class="random-post-parse-element"><strong>Title: </strong>{{post.title}}</p>
+          <p class="random-post-parse-element"><strong>Title: </strong>{{post.title | mayusculizar}}</p>
           <p class="random-post-parse-element"><strong>Body: </strong>{{post.body}}</p>
        </div>
   </div>
@@ -16,6 +16,8 @@
 <script>
 import axios from 'axios';
 import filterPostMixin from '../mixins/filterPostMixin';
+
+// TODO: make a filter that capitalizes all post titles
 
 export default {
      name: 'RandomPostsParser',
@@ -34,7 +36,16 @@ export default {
      },
      mixins: [
           filterPostMixin
-     ]
+     ],
+     filters: {
+          mayusculizar: function (value) {
+               if (value) {
+                    return value.toUpperCase();
+               } else {
+                    return '';
+               }
+          }
+     }
 }
 </script>
 

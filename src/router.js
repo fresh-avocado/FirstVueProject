@@ -48,6 +48,11 @@ export default new Router({
       path: '/randomposts',
       name: 'randomposts',
       component: () => import(/* webpackChunkName: "randomposts" */ './views/RandomPosts.vue')
+    },
+    {
+      path: '/random',
+      name: 'random',
+      component: () => import(/* webpackChunkName: "random" */ './views/Random.vue')
     }
   ]
 })
