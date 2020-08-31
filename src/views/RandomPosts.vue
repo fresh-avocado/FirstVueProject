@@ -1,6 +1,6 @@
 <template>
   <div class="random-posts-container">
-       <h1>Random Posts</h1>
+       <h1 id="title">Random Posts</h1>
        <RandomPostsParser></RandomPostsParser>
   </div>
 </template>
@@ -17,5 +17,7 @@ export default {
 </script>
 
 <style>
-
+#title {
+     margin: 1%;
+}
 </style>

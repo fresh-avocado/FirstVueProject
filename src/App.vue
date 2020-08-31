@@ -24,7 +24,7 @@ export default {
   }
 
   body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Gayathri', sans-serif;
     line-height: 1.4;
   }
 

@@ -1,9 +1,12 @@
 <template>
   <div class="container">
+       <div class="search-bar">
+            <input type="text" placeholder="Search by title ..." v-model="search" id="searchBar">
+       </div>
        <div v-if="loading" class="loading">
             <h3>Loading...</h3>
        </div>
-       <div v-else class="random-posts-parser-container" v-for="post in posts" v-bind:key="post.id">
+       <div v-else class="random-posts-parser-container" v-for="post in filteredPosts" v-bind:key="post.id">
           <p class="random-post-parse-element"><strong>Title: </strong>{{post.title}}</p>
           <p class="random-post-parse-element"><strong>Body: </strong>{{post.body}}</p>
        </div>
@@ -12,12 +15,14 @@
 
 <script>
 import axios from 'axios';
+import filterPostMixin from '../mixins/filterPostMixin';
 
 export default {
      name: 'RandomPostsParser',
      data() {
           return {
                posts: [],
+               search: '',
                loading: true,
           }
      },
@@ -26,15 +31,28 @@ export default {
                this.posts = response.data;
                this.loading = false;
           });
-     }
+     },
+     mixins: [
+          filterPostMixin
+     ]
 }
 </script>
 
 <style>
 
-.laoding {
+.loading {
      display: flex;
      align-items: center;
+}
+
+.search-bar {
+     padding: 1%;
+     margin: 2%;
+}
+
+#searchBar {
+     padding: 1%;
+     margin: 1%;
 }
 
 .container {
@@ -45,6 +63,7 @@ export default {
      border-style: solid;
      border: black;
      border-width: 1px;
+     flex-direction: column;
 }
 
 /* large screens */

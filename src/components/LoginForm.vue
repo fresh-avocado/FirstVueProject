@@ -2,8 +2,8 @@
      <div>
           <!-- TODO: hacer validacion -->
           <form class="login-form-container">
-               <input v-model="email" type="email" placeholder="Email ..." class="form-element">
-               <input v-model="password" type="password" placeholder="Password ..." class="form-element">
+               <input v-model="email" type="email" placeholder="Email ..." class="form-element" required>
+               <input v-model="password" type="password" placeholder="Password ..." class="form-element" required>
                <input type="submit" class="form-element" value="Login" v-on:click="login(email, password)">
           </form>
      </div>

@@ -7,7 +7,7 @@
       <router-link class="link" to="/contact">Contact</router-link>|
       <router-link class="link" to="/posts">Posts</router-link>|
       <router-link class="link" to="/images">Random Images</router-link>|
-      <router-link class="link" to="randomposts">Random Posts</router-link>|
+      <router-link class="link" to="/randomposts">Random Posts</router-link>|
       <!-- FIXME: Cómo prohibir q el usuario tipee /createpost? -->
       <router-link class="link" to="/createpost" v-if="loggedIn && role == 0">New Post |</router-link>
       <router-link class="link" to="/login" v-if="!loggedIn">Login</router-link>

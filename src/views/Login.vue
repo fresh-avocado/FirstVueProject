@@ -1,6 +1,6 @@
 <template>
      <div class="login-container">
-          <h1>Login</h1>
+          <h1 id="title">Login&copy;&reg;&trade;&dagger;</h1>
           <LoginForm></LoginForm>
      </div>
 </template>
@@ -17,6 +17,10 @@ export default {
 </script>
 
 <style scoped>
+     #title {
+          margin: 1%;
+     }
+
      .login-container {
           display: flex;
           flex-direction: column;

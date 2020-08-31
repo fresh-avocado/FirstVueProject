@@ -5,18 +5,12 @@
                <!-- TODO: toggle entre "Ordenar por Rating" y "Ordenar por Fecha" -->
                <button v-on:click="orderPosts" class="posts-header-button">{{orderBy}}</button>
           </div>
-          <div v-if="loading">
-               <h3 id="loading-message">Loading...</h3>
-          </div>
-          <div v-else>
-               <PostsParser v-bind:posts="posts" />
-          </div>
+          <PostsParser/>
      </div>
 </template>
 
 <script>
 import PostsParser from '../components/PostsParser.vue';
-import axios from 'axios';
 
 export default {
      name: 'posts',
@@ -25,24 +19,14 @@ export default {
      },
      data () {
           return {
-               posts: [],
                orderBy: "Ordenar por Rating",
                orderByRating: true,
-               loading: true,
           }
-     },
-     created() {
-          axios.get('http://localhost:8080/post')
-          // fetch all validated posts, this can be done by changing the request
-          .then(response => {
-               this.loading = false;
-               this.posts = response.data;
-          }) // .data !!!!!!!
-          .catch(error => console.log("Error when fetching Pachay posts."));
      },
      methods: {
           orderPosts() {
                if (this.orderByRating) {
+                    // TODO: send prop in order to sort by rating
                     // fetch posts again ordered by rating (need to change request)
                     this.orderBy = "Ordenar por Fecha";
                } else {
@@ -56,12 +40,6 @@ export default {
 </script>
 
 <style scoped>
-
-     #loading-message {
-          display: flex;
-          justify-content: center;
-     }
-
      .title {
           padding: 10px;
      }
@@ -69,9 +47,6 @@ export default {
           display: flex;
           justify-content: space-between;
           margin: 1%;
-     }
-     .posts-header-title {
-          
      }
      .posts-header-button {
           background-color: chartreuse;
